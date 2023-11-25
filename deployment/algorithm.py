@@ -21,7 +21,7 @@ import torch.backends.cudnn as cudnn
 
 from yolov5.models.experimental import attempt_load
 from yolov5.utils.downloads import attempt_download
-from yolov5.models.common import DetectMultiBackend
+# from yolov5.mode ls.common import DetectMultiBackend
 # from yolov5.utils.datasets import LoadImages, LoadStreams
 # scale_coords
 from yolov5.utils.general import (LOGGER, check_img_size, non_max_suppression, 
