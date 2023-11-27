@@ -8,8 +8,8 @@ conn = sqlite3.connect('../database/database.db')
 cursor = conn.cursor()
 
 def writeToDatabase():
-    while True :
-        try :  
+    try:
+        while True:
             with open("data.json", "r") as jsonFile:
                 data = json.load(jsonFile)
             jsonFile.close()
@@ -27,9 +27,18 @@ def writeToDatabase():
             conn.commit()
             print(x_value, total_1, total_2, total_3, total_3)
             time.sleep(10)
-        except KeyboardInterrupt:
-            cursor.close()
-            conn.close()
+    except KeyboardInterrupt:
+                  print("KeyboardInterrupt: Closing cursor and connection.")
+                  
+
+    except Exception as e:
+                  print(f"An error occurred: {e}")
+
+    finally:
+                 if cursor:
+                     cursor.close()
+                 if conn:
+                     conn.close()
         
 if __name__ == "__main__":
     writeToDatabase()
